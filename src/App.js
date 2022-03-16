@@ -1,8 +1,9 @@
 //paso1 :importar useState
 import { useState } from "react";
 import Header from "./Header";
-import Footer from "./Footer"
-
+import Footer from "./Footer";
+import FormRegister from "./Form";
+import FormUser from "./ForUser";
 // El primer paso para definir un componente es el nombre
 // El nombre de un componente siempre debe iniciar en mayuscula
 // ahora el componente basicamente es una funcion, por ende podemos crearlo
@@ -11,7 +12,7 @@ const PrimerComponente = () => {
   //como usar una variable en un componente
   const edad = 99
   //react tiene una funcion llamada useState
-  //useState es un afuncion interja de react la cual se encarga de 
+  //useState es un afuncion interna de react la cual se encarga de 
   //maneja el estado de las variables
   //para poder usar useStates debemos importarla desde react
 
@@ -24,7 +25,7 @@ const PrimerComponente = () => {
   //para poder definnir esta variable como parte de useState debemos inicializar el valor 
   //de esta variable usando dentro de useState
   //ojo el valor que va dentro de useState4 sera el valor inicial de la variable
-
+//lo de abajo es un hook
   const [count, setCount] =useState(0)
   // esta funcion retornar una vista
   // en react usamos return () para inidicar que lo que este dentro de los
@@ -57,6 +58,9 @@ const PrimerComponente = () => {
         {/*ademas es la forma en el caso nuestra reciba algun parametro */}
         <button onClick={()=>parametros(10,20)}>restar</button>
       </div>
+      <hr />
+      <FormRegister />
+      <FormUser></FormUser>
       <Footer></Footer>
     </div>
   );

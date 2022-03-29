@@ -11,24 +11,49 @@
  import Flags from "../pages/Flags";
  import Youtube from "../pages/Youtube";
  import YoutubeAdministrator from "../pages/YoutubeAdministrator";
- 
+ import MovieUpdate from "../pages/MovieUpdate";
+ import Login from "../pages/login";
+ import PopularWeek from "../pages/PopularWeek";
+ //Layout
+ import Main from "../layouts/Main";
+ import Private from "../layouts/Private";
+ import Ecommerce from "../layouts/Ecommerce";
+ import BasketView from "../pages/BasketView";
+
  // Nuestro Router va a ser un componente el cual se encargue de retornar
  // las rutas con su respectiva vista
  const Router = () => {
-   // como esto es un componente tenemos que usar return para poder crear las rutas
+  { /* como esto es un componente tenemos que usar return para poder crear las rutas*/}
    return (
      <BrowserRouter>
        <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/flags" element={<Flags />} />
-         <Route path="/youtube" element={<Youtube />} />
-         <Route
-           path="/youtube/administrador"
-           element={<YoutubeAdministrator />}
-         ></Route>
-       </Routes>
-     </BrowserRouter>
-   );
- };
- 
- export default Router;
+         {/* ROUTE DEL MAIN (PUBLICAS) */}
+         <Route path="login" element={<Login />} />
+        <Route element={<Main />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/flags" element={<Flags />} />
+          <Route path="/flag/detail/:name" element={<detail />} />
+          <Route path="/youtube" element={<Youtube />} />
+        </Route>
+        {/* ROUTE para ecommerce */}
+        <Route element={<Ecommerce />}>
+          <Route path="ecommerce" element={<PopularWeek />} />
+          <Route path="ecommerce/basket" element={<BasketView />} />
+        </Route>
+        {/* ROUTE DEL ADMIN (PRIVADAS) */}
+        <Route element={<Private />}>
+          <Route
+            path="/youtube/administrador"
+            element={<YoutubeAdministrator />}
+          />
+          <Route
+            path="/youtube/administrador/editar/:id"
+            element={<MovieUpdate />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default Router;

@@ -14,11 +14,14 @@
  import MovieUpdate from "../pages/MovieUpdate";
  import Login from "../pages/login";
  import PopularWeek from "../pages/PopularWeek";
+ import CreateProduct from "../pages/CreateProduct";
+ import Profile from "../pages/Profile";
  //Layout
  import Main from "../layouts/Main";
- import Private from "../layouts/Private";
+ import Private from "../layouts/Private"
  import Ecommerce from "../layouts/Ecommerce";
  import BasketView from "../pages/BasketView";
+
 
  // Nuestro Router va a ser un componente el cual se encargue de retornar
  // las rutas con su respectiva vista
@@ -50,6 +53,8 @@
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route path="/ecommerce/create" element={<CreateProduct />} />
+          <Route path="/perfil" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>

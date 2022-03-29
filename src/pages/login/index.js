@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { Button, Grid, Card, CardContent, TextField } from "@mui/material";
 import bgLogin from "../../assets/chibolo.png";
 import { UserContext } from "../../context/UserContext";
+//si tenemos dos funciones con el mismo podemos usasr un aliass
+import { loginUser, storeUser as storeUserFirebase } from "../../service/firestore";
 import swal from "sweetalert";
 
 const Login = () => {
@@ -22,28 +23,37 @@ const Login = () => {
     });
   };
 
-  const handleClickLogin = () => {
-    if (userData.email === "pepe@gmail.com" && userData.password === "123456") {
-      const user = {
-        nombre: "Pepe",
-        apellido: "Zapata",
-        correo: userData.email,
-        edad: 21,
-        trabajo: "Software Developer",
-        dni: "12345678",
-        cel: "999999",
-      };
-      storeUser(user);
+  const handleClickLogin = async () => {
+        // vamos hacer una funcion que se encargue de poder hacer login
+    // ahora si el usuario con el que estamos login no existe lo creamos
+    // como nuevo usuario
+    /**
+     * primero vamos a intentar gaver login el usuario
+     */
+     const { email, password } = userData;
+    let response = await loginUser(email, password);
+    console.log(response);
+    if (!response.ok) {
+      // si esto es falso el usuario no existe por ende lo vamos a crear
+      response = await storeUserFirebase(email, password);
 
-      window.location.href = "/youtube/administrador";
-    } else {
-      swal({
-        icon: "error",
-        title: "Error",
-        text: "Email or Password incorrect",
-      });
+      if (!response.ok) {
+        swal({
+          title: "Error",
+          text: response.data,
+          icon: "error",
+        });
+
+        return;
+      }
     }
-  };
+    // recuerden que despues del login o el createUser debemos guardar al usuario
+    //  en userContext
+    storeUser(response.data.user);
+    window.location.href = "/youtube/administrador";
+    }
+    //recuerden que despues del login
+      //si esto falso el usuario n
 
   return (
     <Grid

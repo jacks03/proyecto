@@ -6,10 +6,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 // Para poder importar un componente debos llamarlo por el nombre que fue exportado
-import PrimerComponente from "./AppEjemplo";
-import App from "./app"
+import App from "./App"
 // Por default el archivo que se exporta es index asi que no hace falta llamarlo
-import Home from "./pages/Home";
 
 ReactDOM.render(
   <React.StrictMode>

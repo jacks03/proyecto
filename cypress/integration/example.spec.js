@@ -43,7 +43,7 @@ describe("Mi primera prueba con cypress", () => {
     });
 
     it("prueba de youube", ()=>{
-        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/yotube")
+        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/youtube")
         cy.wait(3000).then(()=>{
             cy.contains("director 332")
         })

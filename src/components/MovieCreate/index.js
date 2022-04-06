@@ -35,7 +35,7 @@ const MovieCreate = (props) => {
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleOpenDialog}>
-        Crear Pelicula
+        crear
       </Button>
       <Dialog open={open} onClose={handleOpenDialog}>
         <DialogContent>

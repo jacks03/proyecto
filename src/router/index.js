@@ -7,7 +7,7 @@
  * el el path creado
  */
  import { BrowserRouter, Routes, Route } from "react-router-dom";
- import Home from "../pages/Home";
+ import Pokemon from "../pages/Pokemon";
  import Flags from "../pages/Flags";
  import Youtube from "../pages/Youtube";
  import YoutubeAdministrator from "../pages/YoutubeAdministrator";
@@ -16,6 +16,9 @@
  import PopularWeek from "../pages/PopularWeek";
  import CreateProduct from "../pages/CreateProduct";
  import Profile from "../pages/Profile";
+ import Home from "../pages/Home";
+ import Map from "../pages/Map";
+ import SignUp from "../pages/SignUp";
  //Layout
  import Main from "../layouts/Main";
  import Private from "../layouts/Private"
@@ -32,11 +35,13 @@
        <Routes>
          {/* ROUTE DEL MAIN (PUBLICAS) */}
          <Route path="login" element={<Login />} />
+         <Route path="signUp" element={<SignUp />} />
         <Route element={<Main />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flag/detail/:name" element={<detail />} />
           <Route path="/youtube" element={<Youtube />} />
+          <Route path="/maps" element={<Map />} />
         </Route>
         {/* ROUTE para ecommerce */}
         <Route element={<Ecommerce />}>
@@ -44,7 +49,7 @@
           <Route path="ecommerce/basket" element={<BasketView />} />
         </Route>
         {/* ROUTE DEL ADMIN (PRIVADAS) */}
-        <Route element={<Private />}>
+        <Route element={<Private />}>  
           <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
@@ -55,6 +60,7 @@
           />
           <Route path="/ecommerce/create" element={<CreateProduct />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/home" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

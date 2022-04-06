@@ -70,7 +70,7 @@ const YoutubeAdministrator = () => {
               <TableCell>Director</TableCell>
               <TableCell>Genero</TableCell>
               <TableCell>Link del video</TableCell>
-              <TableCell>Botones</TableCell>
+              <TableCell>Botoncito</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

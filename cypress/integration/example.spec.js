@@ -32,7 +32,7 @@ describe("Mi primera prueba con cypress", () => {
   
     // vamos a crear a otra prueba para /flags
     it("pruebas para banders", () => {
-      cy.visit("https://proyecto-43nife889-jacks03.vercel.app/");
+      cy.visit("https://proyecto-43nife889-jacks03.vercel.app/flags");
       // vamos a ver como podemos escribir en un input
       // Estamos buscando el primero input y luego de encontrarlos
       // estamos escribiendo peru en dicho input
@@ -43,14 +43,14 @@ describe("Mi primera prueba con cypress", () => {
     });
 
     it("prueba de youube", ()=>{
-        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/")
+        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/yotube")
         cy.wait(3000).then(()=>{
             cy.contains("director 332")
         })
     })
 
     it("prueba de login", () => {
-        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/");
+        cy.visit("https://proyecto-43nife889-jacks03.vercel.app/login");
         // ahora vamos a ver de que otra podemos acceder a los inputs
         // usando el name del inputs podemos encontrar uno especifico y
         // poder escribir en el
